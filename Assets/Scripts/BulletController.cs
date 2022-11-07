@@ -4,13 +4,36 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+    [SerializeField]
+    float timeTilDeath = 5;
+    Rigidbody2D rb;
+    Collider2D c2D;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        c2D = GetComponent<Collider2D>();
+        StartCoroutine("BulletDeath");
+    }
+
+    IEnumerator BulletDeath()
+    {
+        yield return new WaitForSeconds(timeTilDeath);
+        Destroy(gameObject);
+    }
+
     private void FixedUpdate()
     {
-        transform.rotation.ToAngleAxis(out float angle, out Vector3 axis);
-        var overlap = Physics2D.OverlapCapsule(transform.position, new Vector2(0.25f, 0.5f), CapsuleDirection2D.Vertical, angle);
-        if (overlap)
-        {
+        transform.up = rb.velocity.normalized;
+    }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Physics2D.IgnoreCollision(collision.collider, c2D);
+        if (collision.gameObject.tag == "Wall")
+        {
+            // do my own switch
+            rb.velocity = new Vector2(rb.velocity.y, -rb.velocity.x);
         }
     }
 }
