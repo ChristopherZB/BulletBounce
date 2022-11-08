@@ -20,6 +20,9 @@ public class EnemyHitController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(1))
+        {
+            HitNumberController.SpawnHitNumber(Input.mousePosition, 100);
+        }
     }
 }
