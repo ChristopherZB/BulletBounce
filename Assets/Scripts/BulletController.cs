@@ -26,14 +26,4 @@ public class BulletController : MonoBehaviour
     {
         transform.up = rb.velocity.normalized;
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Physics2D.IgnoreCollision(collision.collider, c2D);
-        if (collision.gameObject.tag == "Wall")
-        {
-            // do my own switch
-            rb.velocity = new Vector2(rb.velocity.y, -rb.velocity.x);
-        }
-    }
 }

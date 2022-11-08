@@ -6,6 +6,7 @@ public class PlayerAttackController : MonoBehaviour
 {
     public Transform Body;
     public Transform WeaponContainer;
+    public Transform BulletContainer;
     public WeaponController EquippedWeapon;
 
     // Start is called before the first frame update
@@ -24,7 +25,7 @@ public class PlayerAttackController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            EquippedWeapon.Fire(mousePoint, WeaponContainer);
+            EquippedWeapon.Fire(mousePoint, BulletContainer);
         }
     }
 }
