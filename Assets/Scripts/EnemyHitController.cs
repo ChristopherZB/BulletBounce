@@ -11,10 +11,12 @@ public class EnemyHitController : MonoBehaviour
         c2D = GetComponent<Collider2D>();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.transform.tag == "Bullet")
+        {
+            HitNumberController.SpawnHitNumber(Camera.main.WorldToScreenPoint(transform.position)).Setup(Random.Range(140, 320));
+        }
     }
 
     // Update is called once per frame
@@ -22,7 +24,7 @@ public class EnemyHitController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            HitNumberController.SpawnHitNumber(Input.mousePosition, 100);
+            HitNumberController.SpawnHitNumber(Input.mousePosition).Setup(Random.Range(40, 120));
         }
     }
 }
