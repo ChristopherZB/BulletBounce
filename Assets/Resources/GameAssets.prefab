@@ -44,4 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c45811681cd5a70428bc1ed9670b3b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Canvas: {fileID: 0}
+  HealthbarCanvas: {fileID: 0}
   HitNumberPrefab: {fileID: 7051772215054184717, guid: 6bbec76d0469afb4493c7903bb043a48, type: 3}
+  HealthbarPrefab: {fileID: 6218545995868276821, guid: 37ae25870975b34439d6eae5dc6b181f, type: 3}

@@ -14,6 +14,7 @@ public class Assets : MonoBehaviour
             {
                 _i = Instantiate(Resources.Load<Assets>("GameAssets"));
                 _i.Canvas = GameObject.Find("Canvas").transform;
+                _i.HealthbarCanvas = GameObject.Find("HealthbarCanvas").transform;
             }
             return _i;
         }
@@ -22,5 +23,9 @@ public class Assets : MonoBehaviour
     [HideInInspector]
     public Transform Canvas;
 
+    [HideInInspector]
+    public Transform HealthbarCanvas;
+
     public GameObject HitNumberPrefab;
+    public GameObject HealthbarPrefab;
 }
