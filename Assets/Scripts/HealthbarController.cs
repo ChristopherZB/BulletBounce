@@ -23,7 +23,13 @@ public class HealthbarController : MonoBehaviour
     {
         if (target != null)
         {
-            transform.position = Camera.main.WorldToScreenPoint(target.position);
+            // Use when canvas set to screen space - overlay
+            //transform.position = Camera.main.WorldToScreenPoint(target.position);
+
+            // Use when canvas set to World Space
+            //transform.position = target.position;
+
+            transform.position = RandomHelpers.ScreenToWorldPositioning(target.position);
         }
     }
 

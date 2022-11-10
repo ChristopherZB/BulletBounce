@@ -150,3 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20777737f35c26e459c15a1268b080bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveUpSpeed: 1
+  disappearingSpeed: 3
+  disappearingTimer: 1

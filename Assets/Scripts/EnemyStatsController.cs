@@ -20,7 +20,7 @@ public class EnemyStatsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        HealthbarController = Instantiate(Assets.i.HealthbarPrefab, HealthbarPoint.position, Quaternion.identity, Assets.i.HealthbarCanvas).GetComponent<HealthbarController>();
+        HealthbarController = Instantiate(Assets.i.HealthbarPrefab, HealthbarPoint.position, Quaternion.identity, Assets.i.NonPlayerUICanvas).GetComponent<HealthbarController>();
         HealthbarController.SetTarget(HealthbarPoint, EnemyType);
         HealthbarController.SetHealth(Health, MaxHealth);
     }

@@ -5,8 +5,11 @@ using TMPro;
 
 public class HitNumberController : MonoBehaviour
 {
+    [SerializeField]
     float moveUpSpeed = 60f;
+    [SerializeField]
     float disappearingSpeed = 3f;
+    [SerializeField]
     float disappearingTimer = 1f;
     Color textColor;
 
@@ -16,7 +19,7 @@ public class HitNumberController : MonoBehaviour
 
     public static HitNumberController SpawnHitNumber(Vector3 position)
     {
-        Transform hitNum = Instantiate(Assets.i.HitNumberPrefab, position, Quaternion.identity, Assets.i.Canvas).transform;
+        Transform hitNum = Instantiate(Assets.i.HitNumberPrefab, position, Quaternion.identity, Assets.i.NonPlayerUICanvas).transform;
         return hitNum.GetComponent<HitNumberController>();
     }
 

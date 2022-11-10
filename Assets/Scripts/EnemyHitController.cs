@@ -20,7 +20,12 @@ public class EnemyHitController : MonoBehaviour
             int damage = Random.Range(140, 320);
             if (statsController) statsController.ChangeHealth(-1 * damage);
             if (statsController && !statsController.IsAlive()) return;
-            HitNumberController.SpawnHitNumber(Camera.main.WorldToScreenPoint(transform.position)).Setup(damage);
+
+            // Use when canvas set to screen space - overlay
+            //HitNumberController.SpawnHitNumber(Camera.main.WorldToScreenPoint(transform.position)).Setup(damage);
+
+            // Use when canvas set to World Space
+            HitNumberController.SpawnHitNumber(RandomHelpers.ScreenToWorldPositioning(transform.position)).Setup(damage);
             
         }
     }
