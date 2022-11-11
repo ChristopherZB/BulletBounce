@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStatsController : MonoBehaviour
+public class PlayerStatsController : MonoBehaviour
 {
-    [SerializeField]
-    bool isTargetDummy;
     public float Health;
     public float MaxHealth;
+    public Vector2 HealthStat;
     public Transform HealthbarPoint;
-    public EnemyType EnemyType;
 
 
     HealthbarController HealthbarController;
@@ -21,7 +19,7 @@ public class EnemyStatsController : MonoBehaviour
     void Start()
     {
         HealthbarController = HealthbarController.SpawnHealthbar(HealthbarPoint.position);
-        HealthbarController.SetTarget(HealthbarPoint, EnemyType);
+        HealthbarController.SetTarget(HealthbarPoint);
         HealthbarController.SetHealth(Health, MaxHealth);
     }
 
@@ -43,7 +41,7 @@ public class EnemyStatsController : MonoBehaviour
         healthDirty = true;
         if (Health <= 0)
         {
-            if (isTargetDummy && !respawning) { StartCoroutine("TargetDummyRespawn"); return; }
+            // die
         }
     }
 
@@ -51,13 +49,5 @@ public class EnemyStatsController : MonoBehaviour
     {
         Health = value;
         healthDirty = true;
-    }
-
-    IEnumerator TargetDummyRespawn()
-    {
-        respawning = true;
-        yield return new WaitForSeconds(5);
-        SetHealth(MaxHealth);
-        respawning = false;
     }
 }

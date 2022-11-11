@@ -10,6 +10,11 @@ public class HealthbarController : MonoBehaviour
 
     Transform target;
 
+    public static HealthbarController SpawnHealthbar(Vector3 position)
+    {
+        return Instantiate(Assets.i.HealthbarPrefab, position, Quaternion.identity, Assets.i.NonPlayerUICanvas).GetComponent<HealthbarController>();
+    }
+
     public void SetHealth(float curr, float max)
     {
         SetHealth(curr / max);
