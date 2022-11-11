@@ -15,7 +15,7 @@ public class EnemyHitController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Bullet")
+        if (collision.transform.CompareTag("Bullet"))
         {
             int damage = Random.Range(140, 320);
             if (statsController) statsController.ChangeHealth(-1 * damage);

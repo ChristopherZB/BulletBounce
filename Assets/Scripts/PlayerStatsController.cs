@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class PlayerStatsController : MonoBehaviour
 {
-    public float Health;
-    public float MaxHealth;
+    [Tooltip("x value is Health, y value is MaxHealth")]
     public Vector2 HealthStat;
     public Transform HealthbarPoint;
-
 
     HealthbarController HealthbarController;
 
     bool healthDirty = false;
     bool respawning = false;
+
+    public float Health
+    {
+        get { return HealthStat.x; }
+        set { HealthStat.x = value; }
+    }
+    public float MaxHealth
+    {
+        get { return HealthStat.y; }
+        set { HealthStat.y = value; }
+    }
 
     // Start is called before the first frame update
     void Start()

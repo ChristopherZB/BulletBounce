@@ -4,29 +4,24 @@ using UnityEngine;
 
 public class PlayerHitController : MonoBehaviour
 {
+    [SerializeField]
+    float iTime = 0.5f;
+    Collider2D c2D;
     PlayerStatsController statsController;
+    bool colliding = false;
 
     private void Awake()
     {
+        c2D = GetComponent<Collider2D>();
         statsController = GetComponent<PlayerStatsController>();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.transform.tag == "Bullet")
+        if (!colliding && collision.transform.CompareTag("Enemy"))
         {
+            colliding = true;
+            StartCoroutine("ITime");
             int damage = Random.Range(140, 320);
             if (statsController) statsController.ChangeHealth(-1 * damage);
             if (statsController && !statsController.IsAlive()) return;
@@ -34,5 +29,11 @@ public class PlayerHitController : MonoBehaviour
             HitNumberController.SpawnHitNumber(RandomHelpers.ScreenToWorldPositioning(transform.position)).Setup(damage);
 
         }
+    }
+
+    IEnumerator ITime()
+    {
+        yield return new WaitForSeconds(iTime);
+        colliding = false;
     }
 }

@@ -6,6 +6,7 @@ public class EnemyMovementController : MonoBehaviour
 {
     public Transform Target;
     public float Speed;
+    public float StopDistance = 1.5f;
 
     EnemyStatsController StatsController;
 
@@ -20,7 +21,8 @@ public class EnemyMovementController : MonoBehaviour
         if (Target && StatsController.IsAlive())
         {
             Vector3 direction = Target.position - transform.position;
-            transform.position += direction.normalized * Speed * Time.fixedDeltaTime;
+            if (direction.sqrMagnitude > StopDistance)
+                transform.position += direction.normalized * Speed * Time.fixedDeltaTime;
         }
     }
 }
