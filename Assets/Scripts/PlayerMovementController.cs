@@ -7,6 +7,8 @@ public class PlayerMovementController : MonoBehaviour
 {
     public float movementSpeed = 1;
     public bool activeMovement = true;
+    public float teleportCooldown = 1;
+    public bool CanTeleport = true;
     Vector2 movement = new Vector2();
 
     void Update()
@@ -33,5 +35,19 @@ public class PlayerMovementController : MonoBehaviour
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             rb.velocity = movement * movementSpeed;
         }
+    }
+
+    public void Teleport(Vector3 position)
+    {
+        if (!CanTeleport) return;
+        CanTeleport = false;
+        transform.position = position;
+        StartCoroutine("teleCooldown");
+    }
+
+    IEnumerator teleCooldown()
+    {
+        yield return new WaitForSeconds(teleportCooldown);
+        CanTeleport = true;
     }
 }
