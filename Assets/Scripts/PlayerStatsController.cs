@@ -9,6 +9,7 @@ public class PlayerStatsController : MonoBehaviour
     public Transform HealthbarPoint;
 
     HealthbarController HealthbarController;
+    PlayerMovementController MovementController;
 
     bool healthDirty = false;
     bool respawning = false;
@@ -22,6 +23,11 @@ public class PlayerStatsController : MonoBehaviour
     {
         get { return HealthStat.y; }
         set { HealthStat.y = value; }
+    }
+
+    private void Awake()
+    {
+        MovementController = GetComponent<PlayerMovementController>();
     }
 
     // Start is called before the first frame update
@@ -51,6 +57,10 @@ public class PlayerStatsController : MonoBehaviour
         if (Health <= 0)
         {
             // die
+            respawning = true;
+            SetHealth(0);
+            MovementController.activeMovement = false;
+            StartCoroutine("respawnPlayer");
         }
     }
 
@@ -58,5 +68,18 @@ public class PlayerStatsController : MonoBehaviour
     {
         Health = value;
         healthDirty = true;
+    }
+
+    public void Respawn()
+    {
+        respawning = false;
+        MovementController.activeMovement = true;
+        SetHealth(MaxHealth);
+    }
+
+    IEnumerator respawnPlayer()
+    {
+        yield return new WaitForSeconds(5);
+        Respawn();
     }
 }
