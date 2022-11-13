@@ -20,6 +20,7 @@ public class PlayerHitController : MonoBehaviour
     {
         if (!colliding && collision.transform.CompareTag("Enemy"))
         {
+            if (!collision.GetComponent<EnemyStatsController>().IsAlive()) return;
             colliding = true;
             StartCoroutine("ITime");
             int damage = Random.Range(140, 320);
