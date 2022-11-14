@@ -28,4 +28,7 @@ public class Assets : MonoBehaviour
 
     public GameObject HitNumberPrefab;
     public GameObject HealthbarPrefab;
+
+    [Space]
+    public GameObject TempMonster;
 }
