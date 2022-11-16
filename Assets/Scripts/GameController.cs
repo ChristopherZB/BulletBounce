@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour
 {
     public LevelSpawnsObject LevelSpawns;
 
+    public List<EnemyStatsController> Monsters;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,8 @@ public class GameController : MonoBehaviour
     {
         
     }
+
+    public void AddMonster(EnemyStatsController monster) { Monsters.Add(monster); }
 
     [ContextMenu("Start Game")]
     public void StartGame()
