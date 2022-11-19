@@ -9,6 +9,13 @@ public class GameController : MonoBehaviour
 
     public List<EnemyStatsController> Monsters;
 
+    EnemySpawnMethods methods;
+
+    private void Awake()
+    {
+        methods = GetComponent<EnemySpawnMethods>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +33,13 @@ public class GameController : MonoBehaviour
     [ContextMenu("Start Game")]
     public void StartGame()
     {
-        LevelSpawns.SpawnEnemies();
+        //LevelSpawns.SpawnEnemies();
+        for (int i =0; i < LevelSpawns.EnemiesType.Count; i++)
+        {
+            string type = LevelSpawns.EnemiesType[i];
+            if (type == "dummy")
+                methods.SpawnTestDummy(LevelSpawns.EnemiesCount[i], 2);
+        }
     }
 
     public void EndGame()
