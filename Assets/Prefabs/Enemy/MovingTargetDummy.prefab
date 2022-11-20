@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4263884454645818064}
   - component: {fileID: 4263884454645818071}
   - component: {fileID: 4263884454645818066}
+  - component: {fileID: 5927319072365146557}
   m_Layer: 0
   m_Name: MovingTargetDummy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,6 +92,24 @@ MonoBehaviour:
   MaxHealth: 1000
   HealthbarPoint: {fileID: 4263884456323743709}
   EnemyType: 0
+--- !u!114 &5927319072365146557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4263884454645818070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac60c8421700c3a4592c290cb99f7ccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 5
+  StopDistance: 1
+  Home: {x: 0, y: 0, z: 0}
+  Target: {fileID: 0}
+  IsPatrol: 0
+  PatrolPoints: []
 --- !u!1 &4263884456323743708
 GameObject:
   m_ObjectHideFlags: 0

@@ -322,7 +322,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130b3a4c08a11ab4bb0395a773dc8c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
   LevelSpawns: {fileID: 0}
+  Monsters: []
 --- !u!4 &520237808
 Transform:
   m_ObjectHideFlags: 0
@@ -1338,10 +1340,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingTargetDummy
       objectReference: {fileID: 0}
-    - target: {fileID: 4263884454645818070, guid: a7a6803877dcb4a4cb816954fdf0fbcf, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
+    - target: {fileID: 5927319072365146557, guid: a7a6803877dcb4a4cb816954fdf0fbcf, type: 3}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 1137360529}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: a7a6803877dcb4a4cb816954fdf0fbcf, type: 3}
@@ -1472,29 +1474,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2144315433 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4263884454645818070, guid: a7a6803877dcb4a4cb816954fdf0fbcf, type: 3}
-  m_PrefabInstance: {fileID: 1844966605}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2144315438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144315433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac60c8421700c3a4592c290cb99f7ccc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 5
-  StopDistance: 1
-  Home: {x: 0, y: 0, z: 0}
-  Target: {fileID: 1137360529}
-  IsPatrol: 0
-  PatrolPoints: []
 --- !u!1001 &685161412722595573
 PrefabInstance:
   m_ObjectHideFlags: 0

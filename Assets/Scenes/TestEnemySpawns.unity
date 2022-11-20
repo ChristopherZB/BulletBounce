@@ -983,6 +983,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1370536036 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 685161413758953568, guid: 75632d16ef6f4fb489fe7d1cb1fb1107, type: 3}
+  m_PrefabInstance: {fileID: 1149599766}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858c2a0c547d4b9478b54a3bb3f149bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1734076304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,6 +1180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130b3a4c08a11ab4bb0395a773dc8c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 1370536036}
   LevelSpawns: {fileID: 11400000, guid: 0c1aaeecb2fdc064c8c69e198579efe6, type: 2}
   Monsters: []
 --- !u!4 &1912412879

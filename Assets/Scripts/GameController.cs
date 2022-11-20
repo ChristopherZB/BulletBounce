@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
 {
+    public PlayerStatsController Player;
     public LevelSpawnsObject LevelSpawns;
 
     public List<EnemyStatsController> Monsters;
@@ -28,7 +29,7 @@ public class GameController : MonoBehaviour
         
     }
 
-    public void AddMonster(EnemyStatsController monster) { Monsters.Add(monster); }
+    public void AddMonster(EnemyStatsController monster) { monster.GetComponent<EnemyMovementController>().Target = Player; Monsters.Add(monster); }
 
     [ContextMenu("Start Game")]
     public void StartGame()
