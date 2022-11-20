@@ -17,29 +17,20 @@ public class GameController : MonoBehaviour
         methods = GetComponent<EnemySpawnMethods>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void AddMonster(EnemyStatsController monster) { monster.GetComponent<EnemyMovementController>().Target = Player; Monsters.Add(monster); }
 
     [ContextMenu("Start Game")]
     public void StartGame()
     {
-        //LevelSpawns.SpawnEnemies();
-        for (int i =0; i < LevelSpawns.EnemiesType.Count; i++)
+        for (int i = 0; i < LevelSpawns.EnemiesType.Count; i++)
         {
-            string type = LevelSpawns.EnemiesType[i];
-            if (type == "dummy")
-                methods.SpawnTestDummy(LevelSpawns.EnemiesCount[i], 2);
+            var type = LevelSpawns.EnemiesType[i];
+            switch (type)
+            {
+                case EnemyType.TestDummy:
+                    methods.SpawnTestDummy(LevelSpawns.EnemiesCount[i], 2);
+                    break;
+            }
         }
     }
 

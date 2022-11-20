@@ -38,37 +38,28 @@ public class HealthbarController : MonoBehaviour
         }
     }
 
-    public void SetTarget(Transform t, EnemyType type = EnemyType.Normal)
+    public void SetTarget(Transform t, EnemyTypeSize type = EnemyTypeSize.Normal)
     {
         target = t;
         switch(type)
         {
-            case EnemyType.Normal:
+            case EnemyTypeSize.Normal:
                 ((RectTransform)transform).SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 60f);
                 break;
-            case EnemyType.Small:
+            case EnemyTypeSize.Small:
                 ((RectTransform)transform).SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 30f);
                 break;
-            case EnemyType.Big:
+            case EnemyTypeSize.Big:
                 ((RectTransform)transform).SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 90f);
                 break;
-            case EnemyType.Large:
+            case EnemyTypeSize.Large:
                 ((RectTransform)transform).SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 120f);
                 break;
-            case EnemyType.Boss:
+            case EnemyTypeSize.Boss:
                 ((RectTransform)transform).SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 180f);
                 break;
         }
     }
 
 
-}
-
-public enum EnemyType
-{
-    Normal,
-    Small,
-    Big,
-    Large,
-    Boss
 }

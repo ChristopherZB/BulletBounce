@@ -6,7 +6,7 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "New Level", menuName = "Level Spawn")]
 public class LevelSpawnsObject : ScriptableObject
 {
-    public List<string> EnemiesType;
+    public List<EnemyType> EnemiesType;
     public List<int> EnemiesCount;
 
     private void OnValidate()

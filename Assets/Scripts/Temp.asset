@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de7e6a63e7a2c2439d99fa58c5a1c0e, type: 3}
   m_Name: Temp
   m_EditorClassIdentifier: 
-  EnemiesType:
-  - dummy
+  EnemiesType: 00000000
   EnemiesCount: 05000000

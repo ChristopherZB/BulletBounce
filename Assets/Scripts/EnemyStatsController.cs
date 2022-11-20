@@ -9,7 +9,7 @@ public class EnemyStatsController : MonoBehaviour
     public float Health;
     public float MaxHealth;
     public Transform HealthbarPoint;
-    public EnemyType EnemyType;
+    public EnemyTypeSize EnemyType;
 
 
     HealthbarController HealthbarController;
